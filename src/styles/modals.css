@@ -1,0 +1,53 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: rgba(10, 10, 12, 0.82);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.sheet { background: var(--bg); border-radius: 12px; width: min(1180px, 100%); max-height: 100%; overflow: auto; padding: 20px; }
+.sheet.narrow { width: min(640px, 100%); }
+.sheet .hd { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.sheet .hd h2 { margin: 0; }
+.sheet .lead { margin: 0 0 12px; color: var(--mute); font-size: 15px; }
+
+/* side by side */
+.cmpg { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 16px; }
+.cmpg figure { margin: 0; }
+.cmpg .mon { cursor: pointer; }
+.cmpg figcaption { margin-top: 8px; font-size: 15px; }
+.cmpg figcaption b { display: block; font: 700 20px/1.1 'Archivo Narrow', sans-serif; }
+.cmpg .card strong { font-size: 28px; }
+
+/* character colour swatches */
+.sws { display: flex; flex-wrap: wrap; gap: 8px; }
+.sws label { position: relative; cursor: pointer; }
+.sws input { position: absolute; opacity: 0; }
+.sws span { display: block; width: 40px; height: 40px; border-radius: 50%; border: 3px solid var(--bg); box-shadow: 0 0 0 1px var(--line); }
+.sws input:checked + span { box-shadow: 0 0 0 3px var(--ink); }
+.sws input:focus-visible + span { outline: 3px solid var(--acc-edge); outline-offset: 2px; }
+
+/* export progress */
+.prog { height: 10px; border-radius: 999px; background: var(--panel); overflow: hidden; margin: 12px 0 6px; }
+.prog i { display: block; height: 100%; width: 0; background: var(--acc); transition: width 0.2s; }
+
+/* toast */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  z-index: 50;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 8px 8px 8px 16px;
+  border-radius: 10px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 15px;
+}
+.toast button { min-height: 36px; background: transparent; color: inherit; border-color: color-mix(in srgb, var(--bg) 40%, transparent); }

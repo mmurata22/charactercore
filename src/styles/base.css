@@ -1,0 +1,87 @@
+/* VOICE everyday creative tool, a writer's cutting room
+   IDEA an editor's lightbox: a black monitor and a film strip of moments, marked in light-blue grease pencil
+   COLOUR white lightbox ground, ink, film-base near-black strip, light sky blue accent; characters keep their own colours
+   TYPE Archivo Narrow (slate lettering) + Inter */
+:root {
+  color-scheme: light dark;
+  --bg: light-dark(#ffffff, #121214);
+  --ink: light-dark(#17171a, #ececee);
+  --mute: light-dark(#5d5d66, #a3a3ad);
+  --line: light-dark(#dcdce0, #2c2c32);
+  --panel: light-dark(#f3f6f9, #1a1c20);
+  --film: #1c1c1f;
+  --acc: #8fd0f5;
+  --acc-ink: #0b3550;
+  --acc-edge: light-dark(#2f8fcb, #8fd0f5);
+  --field: light-dark(#fff, #16161a);
+  --nav: 260px;
+}
+:root[data-theme='light'] { color-scheme: light; }
+:root[data-theme='dark'] { color-scheme: dark; }
+
+* { box-sizing: border-box; min-width: 0; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.5 Inter, system-ui, sans-serif;
+  overflow-x: clip;
+}
+[hidden] { display: none !important; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+h1, h2, .slate { font-family: 'Archivo Narrow', Inter, sans-serif; letter-spacing: -0.01em; }
+h1 { font-size: clamp(32px, 4.5vw, 46px); line-height: 1.05; margin: 0; }
+h2 { font-size: 24px; line-height: 1.1; margin: 0 0 12px; }
+
+.band { padding: clamp(18px, 3vw, 32px) max(4vw, 16px); }
+.wrap { max-width: 1240px; margin: 0 auto; }
+
+/* buttons */
+button, .btn {
+  font: 500 15px/1 Inter, sans-serif;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--field);
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  position: relative;
+}
+button:hover, .btn:hover { border-color: var(--mute); }
+button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible, .btn:focus-within {
+  outline: 3px solid color-mix(in srgb, var(--acc-edge) 60%, transparent);
+  outline-offset: 2px;
+}
+button:disabled { opacity: 0.45; cursor: default; }
+.pri { background: var(--acc); border-color: var(--acc); color: var(--acc-ink); font-weight: 600; }
+.pri:hover { border-color: var(--acc-edge); background: #7cc5ef; }
+.btn input[type='file'] { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.btns { display: flex; flex-wrap: wrap; gap: 8px; }
+.kbd { font-size: 12px; color: var(--mute); border: 1px solid var(--line); border-radius: 4px; padding: 1px 5px; }
+
+/* forms */
+.panel { background: var(--panel); border-radius: 10px; padding: 18px; }
+.panel + .panel { margin-top: 16px; }
+label.f, .f { display: block; font-size: 14px; font-weight: 500; margin: 12px 0 5px; }
+select, input[type='text'], textarea {
+  font: 16px/1.4 Inter, sans-serif;
+  color: var(--ink);
+  background: var(--field);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  width: 100%;
+}
+textarea { min-height: 96px; resize: vertical; }
+.msg { min-height: 22px; font-size: 14px; color: var(--acc-edge); font-weight: 500; margin: 8px 0 0; }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+.chk { display: flex; align-items: center; gap: 10px; min-height: 40px; font-size: 15px; }
+.chk input { width: 20px; height: 20px; accent-color: var(--acc-edge); }
+
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }

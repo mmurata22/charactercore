@@ -1,0 +1,45 @@
+.boot { display: grid; place-items: center; min-height: 100vh; color: var(--mute); }
+
+.home { max-width: 1100px; margin: 0 auto; padding: clamp(28px, 6vw, 64px) max(4vw, 16px) 48px; }
+.home-head { display: flex; align-items: center; gap: 18px; margin-bottom: 28px; }
+.home-head img { flex: none; }
+.home-head h1 { font-size: clamp(40px, 6vw, 58px); letter-spacing: -0.03em; }
+.home-head p { margin: 4px 0 0; color: var(--mute); max-width: 60ch; }
+.home-error { padding: 10px 14px; border-radius: 8px; background: color-mix(in srgb, #e0677a 15%, var(--bg)); }
+.home-muted { color: var(--mute); }
+.home-note { font-size: 14px; margin-top: 18px; max-width: 70ch; }
+
+.home-actions { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 16px; margin-bottom: 32px; }
+.home-actions .panel + .panel { margin-top: 0; }
+.home-actions .f { margin-top: 0; }
+.home-open { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+
+.home-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 14px; }
+.pcard { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 12px; background: var(--field); overflow: hidden; }
+.pcard-body { padding: 16px; flex: 1; }
+.pcard-open {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  min-height: 120px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  text-align: left;
+  font: inherit;
+}
+.pcard-open:hover { background: color-mix(in srgb, var(--acc) 12%, transparent); }
+.pcard-open b { font: 700 24px/1.1 'Archivo Narrow', sans-serif; overflow-wrap: anywhere; }
+.pcard-open span { font-size: 14px; color: var(--mute); }
+.pcard-open small { font-size: 13px; color: var(--mute); }
+.pcard-open em { font-style: normal; font-size: 13px; font-weight: 600; color: light-dark(#a35a00, #f5b35c); margin-top: 4px; }
+.pcard-foot { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 12px; border-top: 1px solid var(--line); background: var(--panel); }
+.pcard-foot button { min-height: 36px; font-size: 14px; padding: 0 12px; }
+.pcard-confirm span { width: 100%; font-size: 14px; }
+
+@media (max-width: 700px) {
+  .home-actions { grid-template-columns: minmax(0, 1fr); }
+  .home-head img { width: 48px; height: 48px; }
+}
